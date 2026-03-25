@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMA — About</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scarlet: { 700: '#9e1b32', 800: '#821629' },
+            gray: { 950: '#0a0a0a' }
+          },
+          fontFamily: { 
+            sans: ['"Open Sauce Sans"', 'sans-serif'], 
+            one: ['"Open Sauce One"', 'monospace'] 
+          },
+          letterSpacing: { tightest: '-.04em' }
+        },
+      },
+    }
+  </script>
+  <style>
+    @keyframes heroEntry { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-animate { opacity: 0; animation: heroEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .btn-punch-transition { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-scarlet-700/30">
+
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+  <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 bg-scarlet-700 flex items-center justify-center rounded-sm transition-transform group-hover:scale-105">
+        <span class="text-white font-bold text-xs">R</span>
+      </div>
+      <span class="text-xl font-bold tracking-tightest uppercase">RUMA</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-10">
+      <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="about.html" class="text-white underline decoration-scarlet-700 underline-offset-8">About</a></li>
+        <li><a href="schedule.html" class="hover:text-white transition-colors">Schedule</a></li>
+        <li><a href="dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
+      </ul>
+      <a href="join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
+        <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
+        <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<section class="bg-black border-b border-white/5 py-20 md:py-32">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <p class="hero-animate delay-1 text-scarlet-700 font-bold uppercase text-[10px] tracking-[0.2em] mb-6 font-one">Who we are</p>
+    <h1 class="hero-animate delay-2 text-5xl md:text-8xl font-bold uppercase tracking-tightest italic mb-8 max-w-3xl leading-none">We are RUMA.</h1>
+    <p class="hero-animate delay-2 text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed">Rutgers' student-led martial arts community since 2015.</p>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <div class="reveal w-full md:w-1/2">
+      <h2 class="text-3xl font-bold uppercase italic mb-8 tracking-tighter">Our Story</h2>
+      <div class="space-y-6 text-gray-400 leading-relaxed text-base">
+        <p>RUMA was founded in 2015 to provide Rutgers students with a dedicated space for combat sports. What started as a small group of wrestlers has grown into a multi-discipline community covering boxing, jiu-jitsu, and Muay Thai.</p>
+        <p>Unlike commercial gyms, we are student-run. Our focus isn't on memberships, but on technical progression and creating a safe environment where students can test themselves without ego.</p>
+        <p>Today, we represent a diverse roster of athletes, from complete beginners to active amateur competitors, all training together under professional coaching.</p>
+      </div>
+    </div>
+    <div id="history-image" class="reveal w-full md:w-1/2 aspect-video bg-black rounded-sm border border-white/5 flex items-center justify-center text-gray-800 font-one text-[10px] uppercase tracking-widest">
+      History Photo
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="reveal">
+        <h3 class="text-white font-bold uppercase tracking-tight mb-4 text-lg">Respect on the mat</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">We train hard but we take care of each other. Safety and mutual respect are the foundations of every practice.</p>
+      </div>
+      <div class="reveal" style="transition-delay: 100ms;">
+        <h3 class="text-white font-bold uppercase tracking-tight mb-4 text-lg">Hard work over talent</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Skill is built through repetition, not shortcuts. We value discipline and showing up over natural ability.</p>
+      </div>
+      <div class="reveal" style="transition-delay: 200ms;">
+        <h3 class="text-white font-bold uppercase tracking-tight mb-4 text-lg">Everyone starts somewhere</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Nobody walks in knowing everything. We were all beginners once, and we help everyone find their footing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 space-y-32 md:space-y-48">
+    <div class="reveal flex flex-col md:flex-row items-center gap-12 md:gap-24">
+      <div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-sm border border-white/5"><img src="/assets/images/boxing-about.jpg" class="w-full h-full object-cover"></div>
+      <div class="w-full md:w-1/2">
+        <h2 class="text-4xl font-bold uppercase italic mb-8 tracking-tighter">Boxing</h2>
+        <p class="text-gray-400 leading-relaxed text-base">Focused on the technical application of the hands. Beginners learn stance, the jab-cross-hook foundation, and head movement. Advanced members work on distance management, counter-punching, and strategic sparring sessions.</p>
+      </div>
+    </div>
+    <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+      <div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-sm border border-white/5"><img src="/assets/images/wrestling-about.jpg" class="w-full h-full object-cover"></div>
+      <div class="w-full md:w-1/2">
+        <h2 class="text-4xl font-bold uppercase italic mb-8 tracking-tighter">Wrestling</h2>
+        <p class="text-gray-400 leading-relaxed text-base">The cornerstone of grappling. We focus on freestyle and folkstyle takedowns, sprawls, and top control. Wrestling is essential for anyone looking to understand the full spectrum of modern MMA and ground transitions.</p>
+      </div>
+    </div>
+    <div class="reveal flex flex-col md:flex-row items-center gap-12 md:gap-24">
+      <div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-sm border border-white/5"><img src="/assets/images/bjj-about.jpg" class="w-full h-full object-cover"></div>
+      <div class="w-full md:w-1/2">
+        <h2 class="text-4xl font-bold uppercase italic mb-8 tracking-tighter">Jiu-Jitsu</h2>
+        <p class="text-gray-400 leading-relaxed text-base">Focused on ground fighting and the technical "human chess" of submissions. Members learn fundamentals of leverage, guard passing, and joint locks. Our BJJ sessions provide a high-level environment for both self-defense and competitive rolling.</p>
+      </div>
+    </div>
+    <div class="reveal flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+      <div class="w-full md:w-1/2 aspect-video overflow-hidden rounded-sm border border-white/5"><img src="/assets/images/muay-about.jpg" class="w-full h-full object-cover"></div>
+      <div class="w-full md:w-1/2">
+        <h2 class="text-4xl font-bold uppercase italic mb-8 tracking-tighter">Muay Thai</h2>
+        <p class="text-gray-400 leading-relaxed text-base">The "Art of Eight Limbs" utilizes fists, elbows, knees, and shins. Training covers basic striking mechanics, heavy bag work, and advanced clinch positioning. This discipline is excellent for conditioning and developing a versatile striking arsenal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="reveal text-center mb-16 md:mb-24">
+      <h2 class="text-4xl font-bold uppercase italic tracking-tighter">The Leadership</h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto">The members responsible for keeping RUMA on the mats.</p>
+    </div>
+    <div id="leadership-roster" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      </div>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-24 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 text-center">
+    <p class="text-[10px] font-bold uppercase tracking-[0.4em] font-one text-gray-500 mb-12">Recognized By & Featured Partners</p>
+    <div id="feature-grid" class="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+      </div>
+  </div>
+</section>
+
+<section class="bg-scarlet-700 py-20 md:py-32 text-center overflow-hidden">
+  <div class="mx-auto max-w-screen-xl px-6 reveal">
+    <h2 class="text-4xl md:text-7xl font-bold uppercase italic text-white mb-12 tracking-tightest leading-none">Seen enough?<br>Come train with us.</h2>
+    <a href="join.html" class="group relative inline-flex items-center bg-white text-scarlet-700 font-bold rounded-sm text-[13px] uppercase tracking-widest px-10 md:px-16 py-5 overflow-hidden transition-all duration-300 shadow-2xl">
+      <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-8 btn-punch-transition opacity-0 group-hover:opacity-100 text-xl">👊</span>
+      <span class="inline-block transform btn-punch-transition group-hover:translate-x-4">Join This Semester</span>
+    </a>
+  </div>
+</section>
+
+<footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+    <div class="flex flex-col">
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
+      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
+        <li><a href="index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
+        <li><a href="about.html" class="text-white">About Us</a></li>
+        <li><a href="schedule.html" class="hover:text-scarlet-700 transition-colors">Schedule</a></li>
+        <li><a href="dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
+        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
+      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
+    <p>© 2026 RUMA. All rights reserved.</p>
+    <p>Built by Almer Capalla-Santos</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { client } from '../sanityClient.ts';
+
+  async function fetchAboutContent() {
+    try {
+      const data = await client.fetch(`{
+        "leadership": *[_type == "leadership"] | order(order asc) {
+          name, role, bio, "imageUrl": image.asset->url
+        },
+        "features": *[_type == "feature"] {
+          name, link, "logoUrl": logo.asset->url
+        },
+        "settings": *[_type == "homeSettings"][0] {
+          "historyUrl": historyPhoto.asset->url
+        }
+      }`);
+
+      // Inject Leadership
+      const rosterContainer = document.getElementById('leadership-roster');
+      if (rosterContainer && data.leadership) {
+        rosterContainer.innerHTML = data.leadership.map((m, index) => `
+          <div class="reveal active bg-gray-950 border border-white/5 rounded-sm overflow-hidden" style="transition-delay: ${index * 100}ms">
+            <div class="w-full h-56 bg-gray-900 overflow-hidden">
+               <img src="${m.imageUrl}" class="w-full h-full object-cover transition-all duration-500" alt="${m.name}">
+            </div>
+            <div class="p-8">
+              <div class="text-white font-bold text-lg italic tracking-tighter">${m.name}</div>
+              <div class="text-scarlet-700 text-[10px] font-bold uppercase tracking-widest mt-1 mb-4">${m.role}</div>
+              <div class="text-gray-500 text-sm leading-relaxed">${m.bio || ''}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Inject History Photo
+      const historyContainer = document.getElementById('history-image');
+      if (historyContainer && data.settings?.historyUrl) {
+        historyContainer.innerHTML = '<img src="' + data.settings.historyUrl + '" class="w-full h-full object-cover rounded-sm" alt="RUMA History">';
+        historyContainer.classList.remove('flex', 'items-center', 'justify-center', 'text-gray-800');
+      }
+
+      // Inject Sponsors
+      const fContainer = document.getElementById('feature-grid');
+      if (fContainer && data.features) {
+        fContainer.innerHTML = data.features.map(f => `
+          <a href="${f.link || '#'}" target="_blank" rel="noopener noreferrer" class="group transition-all duration-500">
+            <img src="${f.logoUrl}" alt="${f.name}" class="h-16 md:h-24 w-auto transition-all duration-500">
+          </a>
+        `).join('');
+      }
+      
+    } catch (err) {
+      console.error('About Page fetch failed:', err);
+    }
+  }
+
+  fetchAboutContent();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

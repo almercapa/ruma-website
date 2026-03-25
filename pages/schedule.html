@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMA — Schedule</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scarlet: { 700: '#9e1b32', 800: '#821629' },
+            gray: { 950: '#0a0a0a' }
+          },
+          fontFamily: { 
+            sans: ['"Open Sauce Sans"', 'sans-serif'], 
+            one: ['"Open Sauce One"', 'monospace'] 
+          },
+          letterSpacing: { tightest: '-.04em' }
+        },
+      },
+    }
+  </script>
+  <style>
+    /* 1. Premium Entrance Orchestration */
+    @keyframes heroEntry {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hero-animate {
+      opacity: 0;
+      animation: heroEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+
+    /* 2. Design System Motion */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    .btn-punch-transition { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; }
+
+    /* 3. Skeleton Loading State */
+    .skeleton {
+      background: linear-gradient(90deg, #0a0a0a 25%, #1a1a1a 50%, #0a0a0a 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+    }
+    @keyframes skeleton-loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-scarlet-700/30">
+
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+  <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
+    <a href="/pages/index.html" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 bg-scarlet-700 flex items-center justify-center rounded-sm transition-transform group-hover:scale-105">
+        <span class="text-white font-bold text-xs">R</span>
+      </div>
+      <span class="text-xl font-bold tracking-tightest uppercase">RUMA</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-10">
+      <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+        <li><a href="/pages/index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="/pages/schedule.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
+      </ul>
+      <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
+        <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
+        <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<section class="bg-black border-b border-white/5 py-20 md:py-32">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <p class="hero-animate delay-1 text-scarlet-700 font-bold uppercase text-[10px] tracking-[0.2em] mb-6 font-one">Training Times</p>
+    <h1 class="hero-animate delay-2 text-5xl md:text-8xl font-bold uppercase tracking-tightest italic mb-8 max-w-3xl leading-[0.9]">Weekly Practices</h1>
+    <p class="hero-animate delay-2 text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed">
+      We train twice a week at the College Ave Gym. No signup required for your first session.
+    </p>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div id="practice-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="skeleton h-[300px] border border-white/5 p-12 rounded-sm"></div>
+      <div class="skeleton h-[300px] border border-white/5 p-12 rounded-sm"></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <div class="reveal w-full md:w-1/2">
+      <div class="aspect-video overflow-hidden rounded-sm border border-white/5">
+        <img src="/assets/images/wroom.jpg" class="w-full h-full object-cover">
+      </div>
+    </div>
+    <div class="reveal w-full md:w-1/2">
+      <h2 class="text-4xl font-bold uppercase italic mb-8 tracking-tighter">Location</h2>
+      <h3 class="text-white text-xl font-bold mb-4">College Ave Gym — Wrestling Room</h3>
+      <p class="text-gray-400 leading-relaxed text-base">
+        Lipman Drive, New Brunswick. Enter through the main gym entrance; the wrestling room is located downstairs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <h2 class="reveal text-4xl font-bold uppercase italic mb-12 md:mb-16 tracking-tighter text-center md:text-left">Upcoming Events</h2>
+    <div id="event-container" class="space-y-6">
+      <div class="skeleton h-24 border border-white/5 rounded-sm"></div>
+      <div class="skeleton h-24 border border-white/5 rounded-sm"></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="reveal text-center mb-16">
+      <h2 class="text-4xl font-bold uppercase italic tracking-tighter">What to bring</h2>
+      <p class="text-gray-500 mt-4 max-w-md mx-auto italic text-sm">Proper preparation ensures a productive session for the entire team.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+      
+      <div class="reveal p-8 border-l-2 border-scarlet-700 bg-gray-950 rounded-sm">
+        <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-4 font-one">Required</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Athletic clothes you can move in. No shoes are allowed on the mats at any time.
+        </p>
+      </div>
+
+      <div class="reveal p-8 border-l-2 border-white/10 bg-gray-950 rounded-sm" style="transition-delay: 100ms;">
+        <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-4 font-one">Provided</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          RUMA provides hitting pads and a heavy bag for striking portions of the practice.
+        </p>
+      </div>
+
+      <div class="reveal p-8 border-l-2 border-white/10 bg-gray-950 rounded-sm" style="transition-delay: 200ms;">
+        <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-4 font-one">Sparring</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          A mouthguard and 14/16oz gloves are mandatory for live drills. We also recommend bringing your own shin pads and hand wraps.
+        </p>
+      </div>
+
+      <div class="reveal p-8 border-l-2 border-white/10 bg-gray-950 rounded-sm" style="transition-delay: 300ms;">
+        <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-4 font-one">Water</h4>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Bring a full water bottle. Two hours on the mat is a high-intensity session—hydration is critical.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+    <div class="flex flex-col">
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
+      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
+        <li><a href="/pages/index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-scarlet-700 transition-colors">About Us</a></li>
+        <li><a href="/pages/schedule.html" class="hover:text-scarlet-700 transition-colors">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
+        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
+      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
+    <p>© 2026 RUMA. All rights reserved.</p>
+    <p>Built by Almer Capalla-Santos</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { client } from '../sanityClient.ts';
+
+  async function fetchContent() {
+    try {
+      // 1. Fetch Practices
+      const practices = await client.fetch(`*[_type == "practice"] | order(order asc)`);
+      const pContainer = document.getElementById('practice-container');
+      
+      if (pContainer && practices.length > 0) {
+        pContainer.innerHTML = practices.map(p => `
+          <div class="reveal active bg-black border border-white/5 p-8 md:p-12 rounded-sm hover:border-scarlet-700/30 transition-all">
+            <div class="flex justify-between items-start mb-10">
+              <h2 class="text-3xl font-bold uppercase italic tracking-tighter">${p.day}</h2>
+              <span class="text-scarlet-700 font-one text-sm font-bold tracking-widest">${p.timeSlot}</span>
+            </div>
+            <p class="text-gray-400 leading-relaxed text-base">${p.description}</p>
+          </div>
+        `).join('');
+      }
+
+      // 2. Fetch Events
+      const events = await client.fetch(`*[_type == "event" && date >= now()] | order(date asc)`);
+      const eContainer = document.getElementById('event-container');
+
+      if (eContainer) {
+        if (events.length > 0) {
+          eContainer.innerHTML = events.map(e => `
+            <div class="reveal active flex flex-col md:flex-row items-start md:items-center bg-black border border-white/5 p-6 md:p-8 rounded-sm gap-6 md:gap-12 group hover:border-scarlet-700/30 transition-all">
+              <div class="text-left md:text-center md:border-r md:border-white/10 md:pr-12">
+                <div class="text-scarlet-700 font-bold text-3xl uppercase tracking-tighter">${e.date}</div>
+              </div>
+              <div class="flex-grow">
+                <h4 class="text-white font-bold text-xl uppercase tracking-tight mb-2">${e.title}</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">${e.description}</p>
+              </div>
+              <span class="bg-scarlet-700/10 text-scarlet-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase font-one tracking-widest w-fit">${e.category}</span>
+            </div>
+          `).join('');
+        } else {
+          eContainer.innerHTML = `
+            <div class="reveal active border border-white/5 bg-gray-950 p-12 rounded-sm text-center">
+              <p class="text-gray-500 text-sm uppercase tracking-widest font-bold mb-4">No upcoming events</p>
+              <p class="text-gray-400 text-base">Check back later or attend training for regular updates.</p>
+            </div>
+          `;
+        }
+      }
+    } catch (err) {
+      console.error('Data fetch failed:', err);
+    }
+  }
+
+  fetchContent();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

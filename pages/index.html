@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMA — Rutgers University Martial Arts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scarlet: { 700: '#9e1b32', 800: '#821629' },
+            gray: { 950: '#0a0a0a' }
+          },
+          fontFamily: { 
+            sans: ['"Open Sauce Sans"', 'sans-serif'], 
+            one: ['"Open Sauce One"', 'monospace'] 
+          },
+          letterSpacing: { tightest: '-.04em' }
+        },
+      },
+    }
+  </script>
+  <style>
+    @keyframes heroEntry { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-animate { opacity: 0; animation: heroEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .btn-punch-transition { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; }
+    .text-outline { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); color: transparent; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 30s linear infinite; }
+    .cross-fade-container div { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease-in-out; }
+    .cross-fade-container div.active { opacity: 1; }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-scarlet-700/30">
+
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+  <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
+    <a href="/pages/index.html" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 bg-scarlet-700 flex items-center justify-center rounded-sm transition-transform group-hover:scale-105">
+        <span class="text-white font-bold text-xs">R</span>
+      </div>
+      <span class="text-xl font-bold tracking-tightest uppercase">RUMA</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-10">
+      <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+        <li><a href="/pages/index.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="/pages/schedule.html" class="hover:text-white transition-colors">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
+      </ul>
+      <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
+        <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
+        <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<section class="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-white/5">
+  <video id="hero-video" autoplay muted loop playsinline class="absolute w-full h-full object-cover grayscale opacity-30">
+    <source src="/assets/videos/sample.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black z-10"></div>
+  <div class="relative z-20 mx-auto max-w-screen-xl px-6 w-full py-24 flex flex-col items-center text-center">
+    <h1 class="hero-animate delay-2 text-5xl md:text-[120px] font-bold tracking-tightest leading-[0.9] md:leading-[0.85] uppercase italic mb-8 max-w-5xl">
+      Train Hard.<br><span class="text-outline">Start Anywhere.</span>
+    </h1>
+    <p class="hero-animate delay-3 text-gray-400 text-base md:text-xl max-w-2xl mb-12 leading-relaxed">The official martial arts club of Rutgers.</p>
+    <div class="hero-animate delay-4 flex flex-col sm:flex-row gap-4 md:gap-6 items-center w-full sm:w-auto">
+      <a href="/pages/join.html" class="w-full sm:w-auto text-center bg-scarlet-700 px-12 py-5 font-bold uppercase tracking-widest text-[13px] rounded-sm">Get Started</a>
+      <a href="/pages/schedule.html" class="w-full sm:w-auto text-center px-12 py-5 border border-white/10 rounded-sm font-bold uppercase tracking-widest text-[13px]">View Schedule</a>
+    </div>
+  </div>
+</section>
+
+<div id="ticker-section" class="reveal bg-gray-950 border-b border-white/5 py-8 overflow-hidden select-none">
+  <div class="animate-marquee flex items-center text-gray-500 text-[11px] font-bold uppercase tracking-[0.25em] font-one whitespace-nowrap">
+    <span class="mx-12">Uppercut</span>
+    <span class="mx-12 text-scarlet-700">Double Leg Takedown</span>
+    <span class="mx-12">Submission Hold</span>
+    <span class="mx-12 text-scarlet-700">Thai Clinch</span>
+    <span class="mx-12">Check Hook</span>
+    <span class="mx-12 text-scarlet-700">Armbar</span>
+    <span class="mx-12">Overhand Right</span>
+    <span class="mx-12 text-scarlet-700">Takedown Defense</span>
+    
+    <span class="mx-12">Uppercut</span>
+    <span class="mx-12 text-scarlet-700">Double Leg Takedown</span>
+    <span class="mx-12">Submission Hold</span>
+    <span class="mx-12 text-scarlet-700">Thai Clinch</span>
+    <span class="mx-12">Check Hook</span>
+    <span class="mx-12 text-scarlet-700">Armbar</span>
+    <span class="mx-12">Overhand Right</span>
+    <span class="mx-12 text-scarlet-700">Takedown Defense</span>
+  </div>
+</div>
+
+<section class="bg-black py-20 md:py-32 overflow-hidden border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 flex flex-col md:flex-row items-center gap-12 md:gap-24">
+    <div id="home-carousel" class="reveal w-full md:w-5/12 relative group aspect-[4/3] bg-gray-950 border border-white/5 rounded-sm overflow-hidden cross-fade-container">
+        <div class="active flex items-center justify-center bg-gray-900 text-[10px] font-one uppercase tracking-widest text-gray-600 font-bold">Practice Loading...</div>
+    </div>
+    <div class="reveal md:ml-auto w-full md:w-6/12">
+      <h2 class="text-4xl md:text-6xl font-bold uppercase tracking-tightest italic mb-8 leading-tight">More than just a gym.</h2>
+      <p class="text-gray-400 text-lg leading-relaxed mb-8">RUMA is a student-run organization dedicated to combat sports. We provide a high-energy environment for students to train in various disciplines safely.</p>
+      <p class="text-gray-400 text-lg leading-relaxed">Whether your goal is competition, self-defense, or fitness, our community helps you progress from day one. No ego, just hard work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-4">
+    <div class="reveal text-center mb-16 md:mb-24">
+      <h2 class="text-4xl md:text-6xl font-bold uppercase tracking-tightest italic">Our Disciplines</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="reveal group bg-black border border-white/5 p-8 md:p-10 rounded-sm hover:border-scarlet-700/50 transition-all flex flex-col justify-between h-[400px] md:h-[420px]">
+        <div><h3 class="text-2xl font-bold uppercase tracking-tighter mb-4 group-hover:text-scarlet-700 transition-colors">Boxing</h3><p class="text-gray-500 text-sm leading-relaxed">Master the art of the hands.</p></div>
+        <div class="aspect-[16/10] overflow-hidden rounded-sm"><img src="/assets/images/boxing-hero.jpg" class="w-full h-full object-cover"></div>
+      </div>
+      <div class="reveal group bg-black border border-white/5 p-8 md:p-10 rounded-sm hover:border-scarlet-700/50 transition-all flex flex-col justify-between h-[400px] md:h-[420px]" style="transition-delay: 100ms;">
+        <div><h3 class="text-2xl font-bold uppercase tracking-tighter mb-4 group-hover:text-scarlet-700 transition-colors">Wrestling</h3><p class="text-gray-500 text-sm leading-relaxed">The foundation of grappling.</p></div>
+        <div class="aspect-[16/10] overflow-hidden rounded-sm"><img src="/assets/images/wrestling-hero.jpg" class="w-full h-full object-cover"></div>
+      </div>
+      <div class="reveal group bg-black border border-white/5 p-8 md:p-10 rounded-sm hover:border-scarlet-700/50 transition-all flex flex-col justify-between h-[400px] md:h-[420px]" style="transition-delay: 200ms;">
+        <div><h3 class="text-2xl font-bold uppercase tracking-tighter mb-4 group-hover:text-scarlet-700 transition-colors">Jiu-Jitsu</h3><p class="text-gray-500 text-sm leading-relaxed">Ground fighting and submissions.</p></div>
+        <div class="aspect-[16/10] overflow-hidden rounded-sm"><img src="/assets/images/bjj-hero.jpg" class="w-full h-full object-cover"></div>
+      </div>
+      <div class="reveal group bg-black border border-white/5 p-8 md:p-10 rounded-sm hover:border-scarlet-700/50 transition-all flex flex-col justify-between h-[400px] md:h-[420px]" style="transition-delay: 300ms;">
+        <div><h3 class="text-2xl font-bold uppercase tracking-tighter mb-4 group-hover:text-scarlet-700 transition-colors">Muay Thai</h3><p class="text-gray-500 text-sm leading-relaxed">The art of eight limbs.</p></div>
+        <div class="aspect-[16/10] overflow-hidden rounded-sm"><img src="/assets/images/muay-hero.jpg" class="w-full h-full object-cover"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="reveal text-center mb-16 md:mb-24"><h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tightest italic">Your First Practice</h2></div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 text-center relative">
+        <div class="hidden lg:block absolute top-12 inset-x-0 h-px bg-white/5 z-0"></div>
+        <div class="reveal relative z-10"><div class="w-20 h-20 md:w-24 md:h-24 bg-gray-950 border border-scarlet-700/50 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 text-2xl font-bold text-white shadow-xl shadow-scarlet-950/20">1</div><h4 class="font-bold uppercase tracking-widest text-xs mb-4">Show Up</h4><p class="text-gray-500 text-xs">Arrive 10m early at College Ave Gym.</p></div>
+        <div class="reveal relative z-10" style="transition-delay: 100ms;"><div class="w-20 h-20 md:w-24 md:h-24 bg-gray-950 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 text-2xl font-bold text-white">2</div><h4 class="font-bold uppercase tracking-widest text-xs mb-4">Meet Team</h4><p class="text-gray-500 text-xs">Meet an e-board member to sign the waiver.</p></div>
+        <div class="reveal relative z-10" style="transition-delay: 200ms;"><div class="w-20 h-20 md:w-24 md:h-24 bg-gray-950 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 text-2xl font-bold text-white">3</div><h4 class="font-bold uppercase tracking-widest text-xs mb-4">Warm Ups</h4><p class="text-gray-500 text-xs">Start with a warm-up and shadow boxing.</p></div>
+        <div class="reveal relative z-10" style="transition-delay: 300ms;"><div class="w-20 h-20 md:w-24 md:h-24 bg-gray-950 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-6 md:mb-8 text-2xl font-bold text-white">4</div><h4 class="font-bold uppercase tracking-widest text-xs mb-4">Technical Drills</h4><p class="text-gray-500 text-xs">Learn a new technique with guided drills!</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal bg-scarlet-700 py-20 md:py-24 text-center">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <h2 class="text-3xl md:text-5xl font-bold uppercase tracking-tightest italic text-white mb-6">First two practices are free.</h2>
+    <p class="text-red-100 text-base mb-10 max-w-xl mx-auto font-medium">No experience needed. No equipment required. Just show up.</p>
+    <a href="/pages/join.html" class="group relative inline-flex items-center bg-white text-scarlet-700 font-bold rounded-sm text-[12px] uppercase tracking-widest px-10 py-4 overflow-hidden transition-all duration-300 shadow-2xl">
+      <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-6 btn-punch-transition opacity-0 group-hover:opacity-100 text-xl">👊</span>
+      <span class="inline-block transform btn-punch-transition group-hover:translate-x-4">Join RUMA</span>
+    </a>
+  </div>
+</section>
+
+<section class="bg-black py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="reveal flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
+        <div><h2 class="text-4xl font-bold uppercase tracking-tightest italic">Leadership</h2><p class="text-gray-500 mt-4">Coached technical instruction.</p></div>
+        <a href="/pages/about.html" class="text-scarlet-700 font-bold uppercase text-[10px] tracking-[0.2em] border-b border-scarlet-700 pb-2">Full Roster</a>
+    </div>
+    <div id="leadership-preview" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-24 md:mb-32">
+        <div class="reveal bg-gray-950 border border-white/5 p-8 rounded-sm">
+            <div class="aspect-square bg-gray-900 mb-8 rounded-sm flex items-center justify-center"><svg class="w-16 h-16 md:w-20 md:h-20 text-gray-700" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+            <h4 class="font-bold uppercase text-lg italic tracking-tighter">John Doe</h4>
+            <p class="text-scarlet-700 text-[10px] font-bold uppercase tracking-widest mt-2">Head Coach</p>
+        </div>
+    </div>
+    
+    <div class="reveal text-center">
+      <h2 class="text-4xl font-bold uppercase tracking-tightest italic mb-12">Life on the Mat</h2>
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
+          <div class="aspect-square bg-gray-950 border border-white/5 rounded-sm flex items-center justify-center text-[10px] text-gray-800 uppercase tracking-widest font-one">Photo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+    <div class="flex flex-col">
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
+      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
+        <li><a href="/pages/index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-scarlet-700 transition-colors">About Us</a></li>
+        <li><a href="/pages/schedule.html" class="hover:text-scarlet-700 transition-colors">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
+        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
+      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
+    <p>© 2026 RUMA. All rights reserved.</p>
+    <p>Built by Almer Capalla-Santos</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { client } from '../sanityClient.ts';
+
+  async function fetchHomeContent() {
+    try {
+      const data = await client.fetch(`{
+        "settings": *[_type == "homeSettings"][0]{
+          "videoUrl": heroVideo.asset->url,
+          "carousel": carouselImages[].asset->url
+        },
+        "leadership": *[_type == "leadership"] | order(order asc) {
+          name, role, "imageUrl": image.asset->url
+        },
+        "gallery": *[_type == "gallery"][0...6] { "url": image.asset->url }
+      }`);
+
+      const videoElement = document.getElementById('hero-video');
+      if (videoElement && data.settings?.videoUrl) {
+        const source = videoElement.querySelector('source');
+        source.src = data.settings.videoUrl;
+        videoElement.load();
+      }
+
+      const carouselContainer = document.querySelector('.cross-fade-container');
+      if (carouselContainer && data.settings?.carousel) {
+        carouselContainer.innerHTML = data.settings.carousel.map((imgUrl, index) => `
+          <div class="${index === 0 ? 'active' : ''}">
+            <img src="${imgUrl}" class="w-full h-full object-cover">
+          </div>
+        `).join('');
+      }
+
+      const lContainer = document.getElementById('leadership-preview');
+      if (lContainer && data.leadership?.length > 0) {
+        lContainer.innerHTML = data.leadership.slice(0, 3).map(m => `
+          <div class="reveal active bg-gray-950 border border-white/5 p-8 rounded-sm">
+            <div class="aspect-square bg-gray-900 mb-8 rounded-sm overflow-hidden"><img src="${m.imageUrl}" class="w-full h-full object-cover transition-all duration-500"></div>
+            <h4 class="font-bold uppercase text-lg italic tracking-tighter text-white">${m.name}</h4>
+            <p class="text-scarlet-700 text-[10px] font-bold uppercase tracking-widest mt-2">${m.role}</p>
+          </div>
+        `).join('');
+      }
+
+      const gContainer = document.getElementById('gallery-grid');
+      if (gContainer && data.gallery?.length > 0) {
+        gContainer.innerHTML = data.gallery.map(img => `
+          <div class="aspect-square bg-gray-950 border border-white/5 rounded-sm overflow-hidden">
+            <img src="${img.url}" class="w-full h-full object-cover transition-all duration-500">
+          </div>
+        `).join('');
+      }
+
+      startCarousel();
+    } catch (err) { console.error('Home Page fetch failed:', err); }
+  }
+
+  function startCarousel() {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.cross-fade-container div');
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+      }, 3000);
+    }
+  }
+
+  fetchHomeContent();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUMA — Pay Dues</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            scarlet: { 700: '#9e1b32', 800: '#821629' },
+            gray: { 950: '#0a0a0a' }
+          },
+          fontFamily: { 
+            sans: ['"Open Sauce Sans"', 'sans-serif'], 
+            one: ['"Open Sauce One"', 'monospace'] 
+          },
+          letterSpacing: { tightest: '-.04em' }
+        },
+      },
+    }
+  </script>
+  <style>
+    @keyframes heroEntry { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
+    .hero-animate { opacity: 0; animation: heroEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .btn-punch-transition { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; }
+    .tier-btn.active { border-color: #9e1b32; background-color: rgba(158, 27, 50, 0.05); }
+  </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-scarlet-700/30">
+
+<header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+  <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
+    <a href="/pages/index.html" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 bg-scarlet-700 flex items-center justify-center rounded-sm transition-transform group-hover:scale-105">
+        <span class="text-white font-bold text-xs">R</span>
+      </div>
+      <span class="text-xl font-bold tracking-tightest uppercase">RUMA</span>
+    </a>
+    <div class="flex items-center gap-4 md:gap-10">
+      <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+        <li><a href="/pages/index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-white transition-colors">About</a></li>
+        <li><a href="/pages/schedule.html" class="hover:text-white transition-colors">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Pay Dues</a></li>
+      </ul>
+      <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
+        <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
+        <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<section class="bg-black border-b border-white/5 py-20 md:py-32">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="max-w-3xl">
+      <p class="hero-animate delay-1 text-scarlet-700 font-bold uppercase text-[10px] tracking-[0.2em] mb-6 font-one">Membership</p>
+      <h1 class="hero-animate delay-2 text-5xl md:text-8xl font-bold uppercase tracking-tightest italic mb-8 leading-[0.9]">Club Dues</h1>
+      <p class="hero-animate delay-2 text-gray-400 text-base md:text-xl leading-relaxed">Membership dues fund our coaching, equipment, and facility access. Select a plan below to continue.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gray-950 py-20 md:py-32 border-b border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 flex flex-col lg:flex-row gap-16">
+    
+    <div class="reveal w-full lg:w-2/3 bg-black border border-white/5 p-8 md:p-12 rounded-sm shadow-2xl">
+        <h3 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-10 font-one">1. Member Info</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div class="space-y-3">
+            <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Full Name</label>
+            <input type="text" id="info-name" required class="info-input w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all" placeholder="Paul Robeson">
+          </div>
+          <div class="space-y-3">
+            <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">RUID (9 Digits)</label>
+            <input type="text" id="info-ruid" required class="info-input w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all" placeholder="123004567">
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-10 font-one">2. Choose a Plan</h3>
+        <div id="plans-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+          <div class="text-gray-800 font-one text-[10px] animate-pulse">Fetching Sanity Plans...</div>
+        </div>
+
+        <h3 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-10 font-one">3. Complete Payment</h3>
+        
+        <div id="venmo-instructions" class="hidden space-y-6 mb-10">
+            <div class="p-6 bg-scarlet-700/5 border border-scarlet-700/20 rounded-sm text-xs leading-relaxed">
+                <p class="text-white font-bold uppercase tracking-widest mb-2">⚠️ Note Required</p>
+                <p class="text-gray-400">You <span class="text-white font-bold">must</span> include your Name and RUID in the Venmo note for our Treasurer to verify your payment status.</p>
+            </div>
+            <div class="p-6 border border-white/5 bg-gray-950 rounded-sm">
+                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold mb-2">Disclaimer</p>
+                <p class="text-[10px] text-gray-600 leading-relaxed italic">RUMA is not responsible for funds sent to incorrect handles. Ensure identifying info is in the notes. Dues are non-refundable.</p>
+            </div>
+        </div>
+
+        <a id="payment-link" href="#" target="_blank" class="group relative w-full inline-flex items-center justify-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[13px] uppercase tracking-widest py-6 overflow-hidden transition-all duration-300 pointer-events-none opacity-50">
+          <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-12 btn-punch-transition opacity-0 group-hover:opacity-100 text-2xl">👊</span>
+          <span id="button-text" class="inline-block transform btn-punch-transition group-hover:translate-x-4">Fill Info to Pay</span>
+        </a>
+    </div>
+
+    <div class="w-full lg:w-1/3 space-y-8">
+        <div class="reveal p-10 bg-black border border-white/5 rounded-sm">
+            <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-8 font-one">Membership Benefits</h4>
+            <ul class="text-gray-500 text-xs space-y-6 leading-relaxed">
+                <li class="flex items-start gap-4"><span class="text-scarlet-700 font-bold">•</span> Technical Coaching instruction.</li>
+                <li class="flex items-start gap-4"><span class="text-scarlet-700 font-bold">•</span> Access to all practice disciplines.</li>
+                <li class="flex items-start gap-4"><span class="text-scarlet-700 font-bold">•</span> Facility & Equipment use.</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+    <div class="flex flex-col">
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
+      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
+        <li><a href="/pages/index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
+        <li><a href="/pages/about.html" class="hover:text-scarlet-700 transition-colors">About Us</a></li>
+        <li><a href="/pages/schedule.html" class="hover:text-scarlet-700 transition-colors">Schedule</a></li>
+        <li><a href="/pages/dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
+        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
+      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+    </div>
+  </div>
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
+    <p>© 2026 RUMA. All rights reserved.</p>
+    <p>Built by Almer Capalla-Santos</p>
+  </div>
+</footer>
+
+<script type="module">
+  import { client } from '../sanityClient.ts';
+
+  let selectedBaseUrl = "";
+  let selectedPrice = 0;
+
+  async function fetchPlans() {
+    try {
+      const plans = await client.fetch(`*[_type == "plan"] | order(price asc)`);
+      const container = document.getElementById('plans-container');
+
+      if (container && plans.length > 0) {
+        container.innerHTML = plans.map((p, index) => `
+          <button type="button" 
+            data-price="${p.price}" 
+            data-link="${p.paymentLink || '#'}"
+            class="tier-btn group flex flex-col p-6 border-2 rounded-sm text-left transition-all duration-300
+            ${index === 0 ? 'active border-scarlet-700 bg-scarlet-700/5' : 'border-white/5 bg-transparent'}">
+            <span class="label font-bold uppercase text-[10px] tracking-widest mb-2 ${index === 0 ? 'text-white' : 'text-gray-600'}">${p.title}</span>
+            <span class="price text-3xl font-bold tracking-tighter italic font-sans ${index === 0 ? 'text-white' : 'text-gray-600'}">$${p.price}.00</span>
+          </button>
+        `).join('');
+
+        const buttons = document.querySelectorAll('.tier-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            buttons.forEach(b => {
+                b.classList.remove('active', 'border-scarlet-700', 'bg-scarlet-700/5');
+                b.classList.add('border-white/5', 'bg-transparent');
+                b.querySelectorAll('span').forEach(s => s.classList.replace('text-white', 'text-gray-600'));
+            });
+            btn.classList.add('active', 'border-scarlet-700', 'bg-scarlet-700/5');
+            btn.querySelectorAll('span').forEach(s => s.classList.replace('text-gray-600', 'text-white'));
+            
+            selectedBaseUrl = btn.dataset.link;
+            selectedPrice = btn.dataset.price;
+            validateAndEnable();
+          });
+        });
+
+        selectedBaseUrl = plans[0].paymentLink;
+        selectedPrice = plans[0].price;
+        validateAndEnable();
+      }
+    } catch (err) { console.error(err); }
+  }
+
+  function validateAndEnable() {
+    const name = document.getElementById('info-name').value;
+    const ruid = document.getElementById('info-ruid').value;
+    const payLink = document.getElementById('payment-link');
+    const instructions = document.getElementById('venmo-instructions');
+    const btnText = document.getElementById('button-text');
+
+    if (name.length > 2 && ruid.length >= 9 && selectedBaseUrl !== "#") {
+      payLink.href = selectedBaseUrl;
+      payLink.classList.remove('opacity-50', 'pointer-events-none');
+      instructions.classList.remove('hidden');
+      btnText.innerText = `Pay $${selectedPrice}.00 via Venmo`;
+    } else {
+      payLink.classList.add('opacity-50', 'pointer-events-none');
+      instructions.classList.add('hidden');
+      btnText.innerText = "Fill Info to Pay";
+    }
+  }
+
+  document.querySelectorAll('.info-input').forEach(input => {
+    input.addEventListener('input', validateAndEnable);
+  });
+
+  fetchPlans();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
