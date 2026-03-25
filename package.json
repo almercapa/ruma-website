@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "sanity dev",
-    "build": "sanity build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sanity:dev": "sanity dev",
+    "sanity:build": "sanity build"
   },
   "dependencies": {
     "sanity": "^3.71.0",
