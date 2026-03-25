@@ -26,12 +26,33 @@ export default defineType({
       type: 'image',
       options: { hotspot: true }
     }),
-    // Add this field to your homeSettings schema in home.ts
-defineField({
-  name: 'formspreeId',
-  title: 'Formspree Endpoint ID',
-  type: 'string',
-  description: 'The letters/numbers at the end of your Formspree URL (e.g., xbj...)'
-}),
+    defineField({
+      name: 'formspreeId',
+      title: 'Formspree Endpoint ID',
+      type: 'string',
+      description: 'The letters/numbers at the end of your Formspree URL (e.g., xbj...)'
+    }),
+    // --- New Social Links Section ---
+    defineField({
+      name: 'instagramUrl',
+      title: 'Instagram URL',
+      type: 'url',
+      description: 'Full link to the RUMA Instagram (e.g., https://instagram.com/...)',
+      validation: Rule => Rule.uri({ scheme: ['http', 'https'] })
+    }),
+    defineField({
+      name: 'groupMeUrl',
+      title: 'GroupMe URL',
+      type: 'url',
+      description: 'The invite link for the current semester GroupMe',
+      validation: Rule => Rule.uri({ scheme: ['http', 'https'] })
+    }),
+    defineField({
+      name: 'discordUrl',
+      title: 'Discord URL',
+      type: 'url',
+      description: 'The permanent invite link for the RUMA Discord',
+      validation: Rule => Rule.uri({ scheme: ['http', 'https'] })
+    }),
   ],
 })

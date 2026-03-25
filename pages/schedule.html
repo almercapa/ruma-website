@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RUMA — Schedule</title>
+  <title>RUMA Practice Schedule | College Ave Gym</title>
+  <meta name="title" content="RUMA Practice Schedule | College Ave Gym">
+  <meta name="description" content="View the official RUMA practice schedule. Join us at the College Ave Gym Wrestling Room for morning and evening sessions in Boxing, Jiu-Jitsu, and Muay Thai.">
+  <meta name="keywords" content="Rutgers Martial Arts, RUMA, Rutgers Boxing, Rutgers BJJ, Rutgers Wrestling, MMA Rutgers, New Brunswick Martial Arts">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://magenta-palmier-3381d0.netlify.app/">
+  <meta property="og:title" content="RUMA — Train Hard. Start Anywhere.">
+  <meta property="og:description" content="Join the official martial arts club of Rutgers. Boxing, Wrestling, Jiu-Jitsu, and Muay Thai for all levels.">
+  <meta property="og:image" content="https://magenta-palmier-3381d0.netlify.app/assets/images/og-preview.jpg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="RUMA | Rutgers University Martial Arts">
+  <meta property="twitter:description" content="Join the official martial arts club of Rutgers. First two practices are free!">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/styles.css">
 
@@ -76,12 +89,30 @@
         <li><a href="/pages/schedule.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Schedule</a></li>
         <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
       </ul>
+      <button id="mobile-menu-button" class="lg:hidden text-white p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
       <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
         <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
         <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
       </a>
     </div>
   </nav>
+  <div id="mobile-menu" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-8 transition-transform duration-500 translate-x-full lg:hidden">
+    <button id="close-menu" class="absolute top-6 right-6 text-white">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <ul class="flex flex-col items-center gap-8 text-xl font-bold uppercase tracking-widest">
+      <li><a href="/pages/index.html" class="hover:text-scarlet-700">Home</a></li>
+      <li><a href="/pages/about.html" class="hover:text-scarlet-700">About</a></li>
+      <li><a href="/pages/schedule.html" class="hover:text-scarlet-700">Schedule</a></li>
+      <li><a href="/pages/dues.html" class="hover:text-scarlet-700">Pay Dues</a></li>
+    </ul>
+  </div>
 </header>
 
 <section class="bg-black border-b border-white/5 py-20 md:py-32">
@@ -172,13 +203,15 @@
 </section>
 
 <footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
-  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left items-start">
+    
     <div class="flex flex-col">
-      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
-      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans leading-none">RUMA</span>
+      <p class="mt-8 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Explore</h4>
       <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
         <li><a href="/pages/index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
         <li><a href="/pages/about.html" class="hover:text-scarlet-700 transition-colors">About Us</a></li>
@@ -186,26 +219,68 @@
         <li><a href="/pages/dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
       </ul>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Connect</h4>
       <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
-        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
-        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+        <li><a id="footer-ig" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a id="footer-groupme" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">GroupMe</a></li>
+        <li><a id="footer-discord" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
       </ul>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
-      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Location</h4>
+      <p class="text-xs uppercase leading-relaxed font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
     </div>
   </div>
+
   <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
     <p>© 2026 RUMA. All rights reserved.</p>
-    <p>Built by Almer Capalla-Santos</p>
+    <p>Built by <a href="https://www.linkedin.com/in/almer-capalla-santos-8540ba2b6/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-scarlet-700 transition-colors underline decoration-white/10 underline-offset-4">Almer Capalla-Santos</a></p>
   </div>
 </footer>
 
 <script type="module">
   import { client } from '../sanityClient.ts';
+  async function fetchSocials() {
+    try {
+      const data = await client.fetch(`*[_type == "homeSettings"][0]{
+        instagramUrl,
+        groupMeUrl,
+        discordUrl
+      }`);
+
+      if (data) {
+        const igLink = document.getElementById('footer-ig');
+        const gmLink = document.getElementById('footer-groupme');
+        const dsLink = document.getElementById('footer-discord');
+
+        // Update links if they exist, otherwise hide the list item
+        if (data.instagramUrl) {
+          igLink.href = data.instagramUrl;
+        } else {
+          igLink.parentElement.style.display = 'none';
+        }
+
+        if (data.groupMeUrl) {
+          gmLink.href = data.groupMeUrl;
+        } else {
+          gmLink.parentElement.style.display = 'none';
+        }
+
+        if (data.discordUrl) {
+          dsLink.href = data.discordUrl;
+        } else {
+          dsLink.parentElement.style.display = 'none';
+        }
+      }
+    } catch (err) {
+      console.error('Social link fetch failed:', err);
+    }
+  }
+
+  fetchSocials();
 
   async function fetchContent() {
     try {
@@ -263,6 +338,23 @@
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const closeBtn = document.getElementById('close-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-full');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('translate-x-full');
+  });
+
+  // Close menu if a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+  });
 </script>
 
 </body>
