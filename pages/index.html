@@ -313,7 +313,13 @@
       if (videoElement && data.settings?.videoUrl) {
         const source = videoElement.querySelector('source');
         source.src = data.settings.videoUrl;
+        
         videoElement.load();
+        
+        // Explicitly trigger play for mobile browsers
+        videoElement.play().catch(error => {
+          console.log("Autoplay was prevented by the browser. This usually happens in Low Power Mode:", error);
+        });
       }
 
       const carouselContainer = document.querySelector('.cross-fade-container');
