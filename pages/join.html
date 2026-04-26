@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join RUMA | Start Your Martial Arts Journey</title>
+  
   <meta name="title" content="Join RUMA | Start Your Martial Arts Journey">
   <meta name="description" content="Start your journey with Rutgers Martial Arts. No experience or equipment is required to begin. Sign the waiver and join the RUMA family today.">
   <meta name="keywords" content="Rutgers Martial Arts, RUMA, Rutgers Boxing, Rutgers BJJ, Rutgers Wrestling, MMA Rutgers, New Brunswick Martial Arts">
@@ -17,8 +18,10 @@
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="RUMA | Rutgers University Martial Arts">
   <meta property="twitter:description" content="Join the official martial arts club of Rutgers. First two practices are free!">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/styles.css">
+  
   <script>
     tailwind.config = {
       theme: {
@@ -39,7 +42,7 @@
   <style>
     @keyframes heroEntry { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
     .hero-animate { opacity: 0; animation: heroEntry 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; }
+    .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
     .btn-punch-transition { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; }
@@ -49,12 +52,10 @@
 
 <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
   <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
-    <a href="/pages/index.html" class="flex items-center gap-3 group">
-      <div class="w-8 h-8 bg-scarlet-700 flex items-center justify-center rounded-sm transition-transform group-hover:scale-105">
-        <span class="text-white font-bold text-xs">R</span>
-      </div>
-      <span class="text-xl font-bold tracking-tightest uppercase">RUMA</span>
+    <a href="/pages/index.html" class="flex items-center group">
+      <img src="/assets/images/ruma-logo.png" alt="RUMA Logo" class="h-8 md:h-10 w-auto transition-transform group-hover:scale-105">
     </a>
+    
     <div class="flex items-center gap-4 md:gap-10">
       <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
         <li><a href="/pages/index.html" class="hover:text-white transition-colors">Home</a></li>
@@ -62,17 +63,20 @@
         <li><a href="/pages/schedule.html" class="hover:text-white transition-colors">Schedule</a></li>
         <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
       </ul>
+      
       <button id="mobile-menu-button" class="lg:hidden text-white p-2">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
-      <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
+
+      <a id="nav-join-btn" href="#" target="_blank" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
         <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
         <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
       </a>
     </div>
   </nav>
+
   <div id="mobile-menu" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-8 transition-transform duration-500 translate-x-full lg:hidden">
     <button id="close-menu" class="absolute top-6 right-6 text-white">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,135 +84,55 @@
       </svg>
     </button>
     <ul class="flex flex-col items-center gap-8 text-xl font-bold uppercase tracking-widest">
-      <li><a href="/pages/index.html" class="hover:text-scarlet-700">Home</a></li>
-      <li><a href="/pages/about.html" class="hover:text-scarlet-700">About</a></li>
-      <li><a href="/pages/schedule.html" class="hover:text-scarlet-700">Schedule</a></li>
-      <li><a href="/pages/dues.html" class="hover:text-scarlet-700">Pay Dues</a></li>
+      <li><a href="/pages/index.html">Home</a></li>
+      <li><a href="/pages/about.html">About</a></li>
+      <li><a href="/pages/schedule.html">Schedule</a></li>
+      <li><a href="/pages/dues.html">Pay Dues</a></li>
     </ul>
   </div>
 </header>
 
-<main class="mx-auto max-w-screen-xl px-6 lg:px-8 py-20 md:py-32">
-  <div class="hero-animate delay-1 mb-16 md:mb-24 text-left">
-    <div class="inline-block border border-scarlet-700/30 bg-scarlet-700/5 px-4 py-1.5 mb-6 rounded-full">
-        <span class="text-scarlet-700 text-[10px] font-bold uppercase tracking-[0.2em] font-one">Open to all skill levels</span>
+<main class="mx-auto max-w-screen-xl px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
+  <div class="hero-animate delay-1 mb-12">
+    <div class="inline-block border border-scarlet-700/30 bg-scarlet-700/5 px-4 py-1.5 mb-8 rounded-full">
+        <span class="text-scarlet-700 text-[10px] font-bold uppercase tracking-[0.2em] font-one">Registration now open</span>
     </div>
-    <h1 class="text-5xl md:text-8xl font-bold uppercase tracking-tightest italic mb-6 leading-[0.9] max-w-4xl">Join RUMA this semester.</h1>
-    <p class="text-gray-400 text-base md:text-xl max-w-2xl leading-relaxed">No experience needed. Show up to your first practice free — we'll take care of the rest.</p>
+    <h1 class="text-6xl md:text-9xl font-bold uppercase tracking-tightest italic mb-6 leading-[0.85] max-w-4xl">Train hard.<br>Start here.</h1>
+    <p class="text-gray-400 text-base md:text-xl max-w-2xl mx-auto leading-relaxed mt-8">
+        First two practices are entirely free. Sign the waiver and join the roster via our official registration form below.
+    </p>
   </div>
 
-  <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-    <div class="bg-gray-950 border border-white/5 p-8 rounded-sm text-center group hover:border-scarlet-700/30 transition-all">
-      <div class="text-4xl font-bold text-scarlet-700 mb-2 italic uppercase tracking-tighter">2x</div>
-      <div class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em] font-one">Weekly practices</div>
-    </div>
-    <div class="bg-gray-950 border border-white/5 p-8 rounded-sm text-center group hover:border-scarlet-700/30 transition-all" style="transition-delay: 100ms;">
-      <div class="text-4xl font-bold text-scarlet-700 mb-2 italic uppercase tracking-tighter">Free</div>
-      <div class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em] font-one">First two practices on us</div>
-    </div>
-    <div class="bg-gray-950 border border-white/5 p-8 rounded-sm text-center group hover:border-scarlet-700/30 transition-all" style="transition-delay: 200ms;">
-      <div class="text-4xl font-bold text-scarlet-700 mb-2 italic uppercase tracking-tighter">0</div>
-      <div class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em] font-one">Experience required</div>
-    </div>
-  </div>
+  <a id="main-join-btn" href="#" target="_blank" class="hero-animate delay-2 group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[13px] uppercase tracking-widest px-16 py-6 overflow-hidden transition-all duration-300 shadow-2xl">
+    <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-10 btn-punch-transition opacity-0 group-hover:opacity-100 text-2xl">👊</span>
+    <span class="inline-block transform btn-punch-transition group-hover:translate-x-4">Open Registration Form</span>
+  </a>
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
-    <div class="reveal">
-      <h3 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-10 font-one">Member Application</h3>
-      <form id="join-ruma-form" method="POST" class="space-y-8">
-        <div class="space-y-4">
-          <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Full name</label>
-          <input type="text" name="name" placeholder="Jane Smith" required class="w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all placeholder:text-gray-800">
-        </div>
-        <div class="space-y-4">
-          <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Rutgers email</label>
-          <input type="email" name="email" placeholder="js123@rutgers.edu" required class="w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all placeholder:text-gray-800">
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-4">
-              <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Year</label>
-              <select name="year" class="w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all appearance-none cursor-pointer">
-                <option value="">Select your year</option>
-                <option>Freshman</option><option>Sophomore</option><option>Junior</option><option>Senior</option><option>Grad student</option>
-              </select>
-            </div>
-            <div class="space-y-4">
-              <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Experience?</label>
-              <select name="experience" class="w-full bg-gray-950 border border-white/10 p-4 rounded-sm text-white focus:border-scarlet-700 outline-none transition-all appearance-none cursor-pointer">
-                <option value="">Select one</option>
-                <option>None at all</option><option>A little</option><option>Casual trainee</option><option>Consistent/Experienced</option>
-              </select>
-            </div>
-        </div>
-        <div class="space-y-4 pt-4">
-          <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Did you pay dues?</label>
-          <div class="flex gap-8">
-            <label class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer hover:text-white transition-colors">
-                <input type="radio" name="dues_paid" value="yes" class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10"> Yes
-            </label>
-            <label class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer hover:text-white transition-colors">
-                <input type="radio" name="dues_paid" value="no" checked class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10"> No / Not yet
-            </label>
-          </div>
-        </div>
-        <div class="space-y-6 pt-4">
-          <label class="block text-gray-500 font-bold uppercase text-[10px] tracking-widest">Interested in</label>
-          <div class="grid grid-cols-2 gap-4">
-            <label class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer group hover:text-white transition-colors">
-                <input type="checkbox" name="interest" value="wrestling" class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10 rounded-sm"> Wrestling
-            </label>
-            <label class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer group hover:text-white transition-colors">
-                <input type="checkbox" name="interest" value="bjj" class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10 rounded-sm"> Jiu-Jitsu
-            </label>
-            <label class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer group hover:text-white transition-colors">
-                <input type="checkbox" name="interest" value="muay-thai" class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10 rounded-sm"> Muay Thai
-            </label>
-            <label class="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-gray-400 cursor-pointer group hover:text-white transition-colors">
-                <input type="checkbox" name="interest" value="mma" class="w-4 h-4 accent-scarlet-700 bg-gray-950 border-white/10 rounded-sm"> MMA
-            </label>
-          </div>
-        </div>
-        <button type="submit" class="group relative w-full inline-flex items-center justify-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[13px] uppercase tracking-widest py-6 overflow-hidden transition-all duration-300">
-            <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-12 btn-punch-transition opacity-0 group-hover:opacity-100 text-2xl">👊</span>
-            <span class="inline-block transform btn-punch-transition group-hover:translate-x-4">Send Info to RUMA</span>
-        </button>
-      </form>
+  <div class="hero-animate delay-3 mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
+    <div class="p-10 bg-gray-950 border border-white/5 rounded-sm">
+      <h4 class="text-white font-bold uppercase text-[10px] tracking-widest mb-4">Unlimited Entry</h4>
+      <p class="text-gray-500 text-xs leading-relaxed">Our new Google Form setup allows for 300+ member signups with zero monthly fees.</p>
     </div>
-
-    <div class="reveal space-y-16">
-      <h3 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] font-one mb-4">The Onboarding Process</h3>
-      <div class="space-y-12">
-        <div class="flex gap-8">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-scarlet-700/10 border border-scarlet-700/30 flex items-center justify-center text-scarlet-700 font-bold text-sm font-one italic">1</div>
-            <div class="space-y-2 pt-2">
-                <h4 class="text-white font-bold uppercase text-xs tracking-widest">Welcome Email</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">We'll send you what to bring, the precise location, and what to expect during your first practice.</p>
-            </div>
-        </div>
-        <div class="flex gap-8">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-scarlet-700/10 border border-scarlet-700/30 flex items-center justify-center text-scarlet-700 font-bold text-sm font-one italic">2</div>
-            <div class="space-y-2 pt-2">
-                <h4 class="text-white font-bold uppercase text-xs tracking-widest">The Trial</h4>
-                <p class="text-gray-500 text-sm leading-relaxed">Your first two sessions are entirely free—no membership required.</p>
-            </div>
-        </div>
-      </div>
-      <div class="p-8 md:p-10 bg-gray-950 border border-white/5 rounded-sm">
-        <h4 class="text-white font-bold uppercase text-[10px] tracking-[0.2em] mb-4 font-one">Bypass the Form?</h4>
-        <p class="text-gray-500 text-sm leading-relaxed italic">You can skip the application and walk directly into any weekly practice.</p>
-      </div>
+    <div class="p-10 bg-gray-950 border border-white/5 rounded-sm">
+      <h4 class="text-white font-bold uppercase text-[10px] tracking-widest mb-4">Real-time Roster</h4>
+      <p class="text-gray-500 text-xs leading-relaxed">Secretary can view all member data instantly via the linked Google Sheet.</p>
+    </div>
+    <div class="p-10 bg-gray-950 border border-white/5 rounded-sm">
+      <h4 class="text-white font-bold uppercase text-[10px] tracking-widest mb-4">Safe & Secure</h4>
+      <p class="text-gray-500 text-xs leading-relaxed">Registration data is stored directly in our official RUMA club Google Drive.</p>
     </div>
   </div>
 </main>
 
 <footer class="bg-black pt-24 pb-12 text-gray-500 border-t border-white/5">
-  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left">
+  <div class="mx-auto max-w-screen-xl px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 text-left items-start">
     <div class="flex flex-col">
-      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans">RUMA</span>
-      <p class="mt-6 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
+      <span class="text-2xl font-bold text-white tracking-tightest uppercase font-sans leading-none">RUMA</span>
+      <p class="mt-8 text-xs leading-relaxed max-w-xs">Building the martial arts community at Rutgers since 2015.</p>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Explore</h4>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Explore</h4>
       <ul class="space-y-4 text-xs uppercase tracking-wider font-bold">
         <li><a href="/pages/index.html" class="hover:text-scarlet-700 transition-colors">Home</a></li>
         <li><a href="/pages/about.html" class="hover:text-scarlet-700 transition-colors">About Us</a></li>
@@ -216,129 +140,76 @@
         <li><a href="/pages/dues.html" class="hover:text-scarlet-700 transition-colors">Pay Dues</a></li>
       </ul>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Connect</h4>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Connect</h4>
       <ul class="space-y-4 text-xs font-bold uppercase tracking-wider">
-        <li><a href="https://www.instagram.com/rumartialarts/" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
-        <li><a href="#" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
+        <li><a id="footer-ig" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">Instagram</a></li>
+        <li><a id="footer-groupme" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">GroupMe</a></li>
+        <li><a id="footer-discord" href="#" target="_blank" rel="noopener noreferrer" class="hover:text-scarlet-700 transition-colors">Discord</a></li>
       </ul>
     </div>
+
     <div>
-      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans">Location</h4>
-      <p class="text-xs uppercase leading-loose font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
+      <h4 class="text-white font-bold mb-8 uppercase text-[10px] tracking-widest font-sans leading-none">Location</h4>
+      <p class="text-xs uppercase leading-relaxed font-sans">College Ave Gym<br>Wrestling Room<br>New Brunswick, NJ</p>
     </div>
   </div>
+
   <div class="mx-auto max-w-screen-xl px-6 lg:px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest text-center">
     <p>© 2026 RUMA. All rights reserved.</p>
-    <p>Built by Almer Capalla-Santos</p>
+    <p>Built by <a href="https://www.linkedin.com/in/almer-capalla-santos-8540ba2b6/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-scarlet-700 transition-colors underline decoration-white/10 underline-offset-4">Almer Capalla-Santos</a></p>
   </div>
 </footer>
 
 <script type="module">
   import { client } from '../sanityClient.ts';
-  async function fetchSocials() {
+  
+  async function fetchSettings() {
     try {
       const data = await client.fetch(`*[_type == "homeSettings"][0]{
         instagramUrl,
         groupMeUrl,
-        discordUrl
+        discordUrl,
+        registrationLink
       }`);
 
       if (data) {
+        // Social Links
         const igLink = document.getElementById('footer-ig');
         const gmLink = document.getElementById('footer-groupme');
         const dsLink = document.getElementById('footer-discord');
 
-        // Update links if they exist, otherwise hide the list item
-        if (data.instagramUrl) {
-          igLink.href = data.instagramUrl;
-        } else {
-          igLink.parentElement.style.display = 'none';
-        }
+        if (data.instagramUrl) igLink.href = data.instagramUrl; else igLink.parentElement.style.display = 'none';
+        if (data.groupMeUrl) gmLink.href = data.groupMeUrl; else gmLink.parentElement.style.display = 'none';
+        if (data.discordUrl) dsLink.href = data.discordUrl; else dsLink.parentElement.style.display = 'none';
 
-        if (data.groupMeUrl) {
-          gmLink.href = data.groupMeUrl;
-        } else {
-          gmLink.parentElement.style.display = 'none';
-        }
-
-        if (data.discordUrl) {
-          dsLink.href = data.discordUrl;
-        } else {
-          dsLink.parentElement.style.display = 'none';
+        // Registration Links
+        if (data.registrationLink) {
+          document.getElementById('nav-join-btn').href = data.registrationLink;
+          document.getElementById('main-join-btn').href = data.registrationLink;
         }
       }
     } catch (err) {
-      console.error('Social link fetch failed:', err);
+      console.error('Settings fetch failed:', err);
     }
   }
 
-  fetchSocials();
+  fetchSettings();
 
-  async function setupForm() {
-    try {
-      const data = await client.fetch(`*[_type == "homeSettings"][0]{ formspreeId }`);
-      const form = document.getElementById('join-ruma-form');
-      
-      if (form && data?.formspreeId) {
-        const formspreeUrl = "https://formspree.io/f/" + data.formspreeId;
-
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          const button = form.querySelector('button');
-          const btnText = button.querySelector('span:last-child');
-          
-          btnText.innerText = "Processing...";
-          button.disabled = true;
-
-          try {
-            const response = await fetch(formspreeUrl, {
-              method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-              window.location.href = '/pages/thanks.html';
-            } else {
-              alert("Error sending. Please message us on Instagram.");
-              btnText.innerText = "Send Info to RUMA";
-              button.disabled = false;
-            }
-          } catch (err) {
-            console.error("Fetch error:", err);
-            alert("Submission failed. Check connection.");
-            btnText.innerText = "Send Info to RUMA";
-            button.disabled = false;
-          }
-        });
-      }
-    } catch (err) {
-      console.error('Sanity fetch error:', err);
-    }
-  }
-
-  setupForm();
-
+  // Reveal Animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // Menu Controls
   const menuBtn = document.getElementById('mobile-menu-button');
   const closeBtn = document.getElementById('close-menu');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('translate-x-full');
-  });
-
-  // Close menu if a link is clicked
+  menuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+  closeBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
   });
