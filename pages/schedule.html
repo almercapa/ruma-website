@@ -74,42 +74,22 @@
 </head>
 <body class="bg-black text-white font-sans antialiased selection:bg-scarlet-700/30">
 
-<header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
-  <a href="/pages/index.html" class="flex items-center group">
-    <img src="/assets/images/ruma-logo.png" alt="RUMA Logo" class="h-14 md:h-18 w-auto transition-transform group-hover:scale-105">
-  </a>
-    <div class="flex items-center gap-4 md:gap-10">
-      <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
-        <li><a href="/pages/index.html" class="hover:text-white transition-colors">Home</a></li>
-        <li><a href="/pages/about.html" class="hover:text-white transition-colors">About</a></li>
-        <li><a href="/pages/schedule.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Schedule</a></li>
-        <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
-      </ul>
-      <button id="mobile-menu-button" class="lg:hidden text-white p-2">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-      <a href="/pages/join.html" class="group relative inline-flex items-center bg-scarlet-700 hover:bg-scarlet-800 text-white font-bold rounded-sm text-[10px] md:text-[11px] uppercase tracking-widest px-5 md:px-8 py-3 md:py-3.5 overflow-hidden transition-all duration-300">
-        <span class="absolute left-0 transform -translate-x-full group-hover:translate-x-4 btn-punch-transition opacity-0 group-hover:opacity-100 text-lg">👊</span>
-        <span class="inline-block transform btn-punch-transition group-hover:translate-x-3">Join RUMA</span>
+  <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <nav class="mx-auto max-w-screen-xl px-6 h-20 flex items-center justify-between">
+      <a href="/pages/index.html" class="flex items-center group">
+        <img src="/assets/images/ruma-logo.png" alt="RUMA Logo" class="h-12 md:h-16 w-auto transition-transform group-hover:scale-105">
       </a>
-    </div>
-  </nav>
-  <div id="mobile-menu" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center gap-8 transition-transform duration-500 translate-x-full lg:hidden">
-    <button id="close-menu" class="absolute top-6 right-6 text-white">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-    <ul class="flex flex-col items-center gap-8 text-xl font-bold uppercase tracking-widest">
-      <li><a href="/pages/index.html" class="hover:text-scarlet-700">Home</a></li>
-      <li><a href="/pages/about.html" class="hover:text-scarlet-700">About</a></li>
-      <li><a href="/pages/schedule.html" class="hover:text-scarlet-700">Schedule</a></li>
-      <li><a href="/pages/dues.html" class="hover:text-scarlet-700">Pay Dues</a></li>
-    </ul>
-  </div>
-</header>
+      
+      <div class="flex items-center gap-4 md:gap-10">
+        <ul class="hidden lg:flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+          <li><a href="/pages/index.html" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/pages/about.html" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/pages/schedule.html" class="text-white underline decoration-scarlet-700 underline-offset-8">Schedule</a></li>
+          <li><a href="/pages/dues.html" class="hover:text-white transition-colors">Pay Dues</a></li>
+        </ul>
+        </div>
+    </nav> 
+  </header>
 
 <section class="bg-black border-b border-white/5 py-20 md:py-32">
   <div class="mx-auto max-w-screen-xl px-6">
