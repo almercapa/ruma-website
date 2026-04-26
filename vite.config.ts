@@ -14,7 +14,6 @@ export default defineConfig({
         schedule: resolve(__dirname, 'pages/schedule.html'),
         join: resolve(__dirname, 'pages/join.html'),
         dues: resolve(__dirname, 'pages/dues.html'),
-        thanks: resolve(__dirname, 'pages/thanks.html'),
       },
     },
   },
